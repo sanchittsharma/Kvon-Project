@@ -56,8 +56,10 @@ async function handleForgotPassword(req,res) {
     const {email} = req.body;
 
   const user = await User.findOne({ userEmail:email });
-  if (!user) return res.status(404).send('No user found ');
-
+  if (!user)  {
+    // return res.status(404).send('No user found ');
+return res.status(404).render('forgot-password', { message: 'No user found' });
+  }
   const token = jwt.sign({ id: user._id }, secretKey, {
     expiresIn: '15m'
   });
