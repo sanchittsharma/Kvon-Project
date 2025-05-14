@@ -128,7 +128,11 @@ async function handleGoogleAuth(req,res) {
             secure: false,
             sameSite: 'strict'
           });
-          res.redirect("/userDashboard");
+         // res.redirect("/userDashboard");
+           res.send(`<script>
+              alert('Login successful');
+              window.location.href = '/'; 
+            </script>`)
         }
 }
 module.exports = {
