@@ -4,6 +4,7 @@ const { setUser } = require("../service/auth");
 const secretKey = "Sanchit@123$";
 const { sendEmail } = require("../utils/sendMail");
 const passport=require("passport")
+const jwt=require("jsonwebtoken")
 
 async function handleuserLogin(req, res) {
   const { userEmail, userPassword } = req.body;
