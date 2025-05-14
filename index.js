@@ -7,7 +7,7 @@ const expressSession=require("express-session")
 const cookieparser=require("cookie-parser")
 const passport=require("passport")
 const userroute=require("./routes/user")
-const port=1000
+const port=5000
 connectToMongodb("mongodb://127.0.0.1:27017/CourseProject")
 // app.use(cookieparser())
 app.use(express.json());
