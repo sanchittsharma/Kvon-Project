@@ -23,8 +23,10 @@ router.post("/login",handleuserLogin)
 router.post("/register",handleUserRegister)
 router.post("/changepass",registrictToLoginUser,handleChangePassword)
 router.post("/forgot-Password",handleForgotPassword)
-router.patch("/resetpassword/:token",handleResetPassword)
-
+router.post("/reset-password/:token",handleResetPassword)
+router.get("/resetpassword/:token",async(req,res)=>{
+    return res.render("reset-password")
+})
 router.get('/auth/google',
     passport.authenticate('google', { scope: ['profile', 'email'] })
   );
