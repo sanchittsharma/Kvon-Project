@@ -1,6 +1,6 @@
 const jwt=require("jsonwebtoken")
 const User=require("../models/user")
-const secretKey = "";
+const secretKey="Sanchit@123#";
 
 function setUser(user) {
     return jwt.sign({
