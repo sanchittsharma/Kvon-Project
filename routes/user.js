@@ -5,7 +5,7 @@ const passport=require("passport")
 // const { handleGoogleAuth } = require("../controllers/user")
 const router=express.Router()
 const {handleChangePassword,handleForgotPassword,handleGoogleAuth,handleResetPassword,handleUserRegister,handleuserLogin}=require("../controllers/user")
-
+const {setUser}=require("../service/auth")
 
 router.get("/login",async(req,res)=>{
     return res.render("login")
