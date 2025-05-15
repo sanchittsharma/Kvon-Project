@@ -1,5 +1,6 @@
 const jwt =require("jsonwebtoken")
 const User=require("../models/user")
+const secretKey="Sanchit@123#";
 
 async function registrictToLoginUser(req,res,next) {
     const userUid=req.cookies?.uid;
