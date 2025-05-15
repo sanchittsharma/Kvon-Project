@@ -31,5 +31,19 @@ router.get('/auth/google',
     passport.authenticate('google', { scope: ['profile', 'email'] })
   );
   
-  router.get('/auth/google/callback',handleGoogleAuth);
+ // router.get('/auth/google/callback',handleGoogleAuth);
+ router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res) => {
+    const token = setUser(req.user); 
+    res.cookie("uid", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'strict'
+    });
+  //   res.redirect("/userDashboard");
+  res.send(`<script>
+        alert('Login successful');
+        window.location.href = '/'; 
+      </script>`)
+  });
   module.exports=router
